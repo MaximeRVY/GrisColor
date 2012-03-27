@@ -1,14 +1,12 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class ChoiceColorVue extends JFrame{
 	public PanelHaut panelHaut;
@@ -17,6 +15,7 @@ public class ChoiceColorVue extends JFrame{
 	
 	public ChoiceColorVue(){
 		Container content = this.getContentPane();
+		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		
 		menu = new Menu();
 		this.setJMenuBar(menu);
