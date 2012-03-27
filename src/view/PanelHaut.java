@@ -1,5 +1,10 @@
 package view;
 
-public class PanelHaut {
+import javax.swing.JPanel;
 
+public class PanelHaut extends JPanel{
+	
+	public PanelHaut(){
+		
+	}	
 }
