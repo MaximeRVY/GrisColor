@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -26,11 +27,18 @@ public class PanelHaut extends JPanel{
 		this.setBorder(BorderFactory.createTitledBorder("Choose Color"));
 		
 		addLine();
+		addLine();
+		addLine();
+		addLine();
+		addLine();
 	}
 
-	private void addLine() {
-		LignePanel panel = new LignePanel();
-		this.add(panel);
-		compteur ++;
+	public void addLine() {
+		if(compteur <= 10){
+			LignePanel panel = new LignePanel();
+			this.add(panel);
+			this.add(Box.createRigidArea(new Dimension(0,10)));
+			compteur ++;
+		}
 	}	
 }

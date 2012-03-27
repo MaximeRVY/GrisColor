@@ -29,6 +29,7 @@ public class ChoiceColorVue extends JFrame{
 		this.setSize(new Dimension(800, 600));
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		this.setResizable(false);
