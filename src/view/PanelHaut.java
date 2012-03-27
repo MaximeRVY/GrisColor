@@ -30,7 +30,7 @@ public class PanelHaut extends JPanel{
 
 	private void addLine() {
 		LignePanel panel = new LignePanel();
-		panel.add(panel);
+		this.add(panel);
 		compteur ++;
 	}	
 }

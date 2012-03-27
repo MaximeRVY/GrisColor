@@ -16,9 +16,9 @@ public class LignePanel extends JPanel{
 	
 	public LignePanel() {
 		textField = new JTextField();
-		textField.setPreferredSize(new Dimension(100, 40));
-		textField.setMinimumSize(new Dimension(100,40));
-		textField.setMaximumSize(new Dimension(100,40));
+		textField.setPreferredSize(new Dimension(100, 20));
+		textField.setMinimumSize(new Dimension(100,20));
+		textField.setMaximumSize(new Dimension(100,20));
 		
 		labelColor = new JLabel();
 		labelColor.setPreferredSize(new Dimension(100, 40));
