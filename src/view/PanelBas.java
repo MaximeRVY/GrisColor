@@ -11,19 +11,22 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelBas extends JPanel {
+	JButton buttonAdd;
+	JButton buttonModifAuto;
 	
 	public PanelBas() {
 		this.setPreferredSize(new Dimension(800, 200));
 		this.setMinimumSize(new Dimension(800, 200));
 		this.setMaximumSize(new Dimension(800, 200));
-		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Modification"),BorderFactory.createEmptyBorder(10,20,10,10)));
 
-		JButton buttonAdd = new JButton("Ajouter une couleur");
+		buttonAdd = new JButton("Ajouter une couleur");
 		buttonAdd.addActionListener(new AddLignePanel());
 		this.add(buttonAdd);
 		this.add(Box.createRigidArea(new Dimension(0,10)));
-		JButton buttonModifAuto = new JButton("Modification Automatique");
+		buttonModifAuto = new JButton("Modification Automatique");
+		buttonModifAuto.setEnabled(false);
 		buttonModifAuto.addActionListener(new ModifAuto());
 		this.add(buttonModifAuto);
 		
@@ -31,7 +34,7 @@ public class PanelBas extends JPanel {
 
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
-			
+			// Appel de la methode addLigne() dans PanelHaut
 		}
 	}
 	

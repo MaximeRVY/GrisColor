@@ -19,9 +19,6 @@ public class LignePanel extends JPanel{
 	
 	public LignePanel() {
 		moins = new JButton("-");
-		moins.setPreferredSize(new Dimension(40, 30));
-		moins.setMinimumSize(new Dimension(40,30));
-		moins.setMaximumSize(new Dimension(40,30));
 		
 		textField = new JTextField();
 		textField.setMinimumSize(new Dimension(100,20));
