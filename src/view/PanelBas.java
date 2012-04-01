@@ -11,9 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelBas extends JPanel {
-	private JButton buttonAdd;
-	private JButton buttonModifAuto;
-	private ChoiceColorVue parent;
+	JButton buttonAdd;
+	JButton buttonModifAuto;
+	ChoiceColorVue parent;
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
@@ -32,14 +32,6 @@ public class PanelBas extends JPanel {
 		buttonModifAuto.addActionListener(new ModifAuto());
 		this.add(buttonModifAuto);
 		
-	}
-	
-	public void modButtonModifAuto(boolean b){
-		buttonModifAuto.setEnabled(b);
-	}
-	
-	public void modButtonAdd(boolean b){
-		buttonAdd.setEnabled(b);
 	}
 
 	class AddLignePanel extends AbstractAction{	
