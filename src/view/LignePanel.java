@@ -35,15 +35,15 @@ public class LignePanel extends JPanel{
 		textField.setMaximumSize(new Dimension(100,20));
 		
 		labelColor = new JPanel();
-		labelColor.setPreferredSize(new Dimension(40, 40));
-		labelColor.setMinimumSize(new Dimension(40,40));
-		labelColor.setMaximumSize(new Dimension(40,40));
+		labelColor.setPreferredSize(new Dimension(35, 35));
+		labelColor.setMinimumSize(new Dimension(35,35));
+		labelColor.setMaximumSize(new Dimension(35,35));
 		labelColor.setBackground(Color.white);
 		
 		labelGris = new JPanel();
-		labelGris.setPreferredSize(new Dimension(40, 40));
-		labelGris.setMinimumSize(new Dimension(40,40));
-		labelGris.setMaximumSize(new Dimension(40,40));
+		labelGris.setPreferredSize(new Dimension(35, 35));
+		labelGris.setMinimumSize(new Dimension(35,35));
+		labelGris.setMaximumSize(new Dimension(35,35));
 		labelGris.setBackground(Color.black);
 		
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);
