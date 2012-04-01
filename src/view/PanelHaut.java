@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class PanelHaut extends JPanel{
 	private int compteur;
-	private List<JPanel> ligneColors;
+	private List<LignePanel> ligneColors;
 	private ChoiceColorVue parent;
 	
 public void coucou(){
@@ -20,7 +20,7 @@ public void coucou(){
 	public PanelHaut(ChoiceColorVue parent){
 		this.parent = parent;
 		compteur = 0;
-		ligneColors = new ArrayList<JPanel>();
+		ligneColors = new ArrayList<LignePanel>();
 		
 		this.setPreferredSize(new Dimension(800,500));
 		this.setMinimumSize(new Dimension(800,500));
@@ -56,5 +56,9 @@ public void coucou(){
 		}else if(compteur == 9){
 			parent.getPanelBas().modButtonAdd(true);
 		}
+	}
+	
+	public List<LignePanel> getLines(){
+		return ligneColors;
 	}
 }

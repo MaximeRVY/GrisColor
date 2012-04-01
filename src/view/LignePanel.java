@@ -19,8 +19,10 @@ import javax.swing.JTextField;
 
 public class LignePanel extends JPanel{
 	JTextField textField;
-	final JPanel labelColor;
+	JPanel labelColor;
 	JPanel labelGris;
+	JPanel labelColorMod;
+	JPanel labelGrisMod;
 	JButton moins;
 	ChoiceColorVue parent;
 	JPanel ligne;
@@ -46,6 +48,16 @@ public class LignePanel extends JPanel{
 		labelGris.setMinimumSize(new Dimension(35,35));
 		labelGris.setMaximumSize(new Dimension(35,35));
 		
+		labelColorMod = new JPanel();
+		labelColorMod.setPreferredSize(new Dimension(35, 35));
+		labelColorMod.setMinimumSize(new Dimension(35,35));
+		labelColorMod.setMaximumSize(new Dimension(35,35));
+		
+		labelGrisMod = new JPanel();
+		labelGrisMod.setPreferredSize(new Dimension(35, 35));
+		labelGrisMod.setMinimumSize(new Dimension(35,35));
+		labelGrisMod.setMaximumSize(new Dimension(35,35));
+		
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
@@ -60,6 +72,10 @@ public class LignePanel extends JPanel{
 		this.add(labelColor);
 		this.add(Box.createRigidArea(new Dimension(40,0)));
 		this.add(labelGris);
+		this.add(Box.createRigidArea(new Dimension(60,0)));
+		this.add(labelColorMod);
+		this.add(Box.createRigidArea(new Dimension(40,0)));
+		this.add(labelGrisMod);
 		
 		this.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 		
@@ -79,6 +95,11 @@ public class LignePanel extends JPanel{
 			int niveaugris = (int) (0.3 * color.getRed() + 0.59*color.getGreen() + 0.11*color.getBlue());
 			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
 		}
+	}
+	
+	public void insertColorMod(Color cc, Color cg){
+		labelColorMod.setBackground(cc);
+		labelGrisMod.setBackground(cg);
 	}
 	
 	class ColorListener implements MouseListener{

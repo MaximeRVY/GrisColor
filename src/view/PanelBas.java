@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -50,7 +51,12 @@ public class PanelBas extends JPanel {
 	
 	class ModifAuto extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
-			
+			List<LignePanel> lines = parent.getPanelHaut().getLines();
+			LignePanel line;
+			for(int i=0 ; i < lines.size() ; i++){
+				line = lines.get(i);
+				line.insertColorMod(line.labelColor.getBackground(), line.labelGris.getBackground());
+			}
 		}
 	}
 }
