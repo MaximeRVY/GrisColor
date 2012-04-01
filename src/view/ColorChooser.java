@@ -27,7 +27,7 @@ public class ColorChooser extends JFrame{
 	    };
 	    model.addChangeListener(changeListener);
 	    contentPane.add(colorChooser, BorderLayout.CENTER);
-
+	    
 	    this.pack();
 	    this.setVisible(true);
 	}
