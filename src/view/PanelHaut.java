@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 public class PanelHaut extends JPanel{
 	private int compteur;
 	private List<JPanel> ligneColors;
+	private ChoiceColorVue parent;
 	
-	public PanelHaut(){
+	public PanelHaut(ChoiceColorVue parent){
+		this.parent = parent;
 		compteur = 0;
 		ligneColors = new ArrayList<JPanel>();
 		
@@ -27,10 +29,6 @@ public class PanelHaut extends JPanel{
 		this.setBorder(BorderFactory.createTitledBorder("Choose Color"));
 		
 		addLine();
-		addLine();
-		addLine();
-		addLine();
-		addLine();
 	}
 
 	public void addLine() {
@@ -38,6 +36,7 @@ public class PanelHaut extends JPanel{
 			LignePanel panel = new LignePanel();
 			this.add(panel);
 			this.add(Box.createRigidArea(new Dimension(0,10)));
+			this.ligneColors.add(panel);
 			compteur ++;
 			if(compteur >= 2){
 				// rendre le bouton modifAuto de panel bas enable

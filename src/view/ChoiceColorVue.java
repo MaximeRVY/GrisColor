@@ -9,21 +9,33 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 public class ChoiceColorVue extends JFrame{
-	public PanelHaut panelHaut;
-	public JPanel panelBas;
-	public JMenuBar menu;
+	PanelHaut panelHaut;
+	JPanel panelBas;
+	JMenuBar menu;
 	
+	public PanelHaut getPanelHaut() {
+		return panelHaut;
+	}
+
+	public JPanel getPanelBas() {
+		return panelBas;
+	}
+
+	public JMenuBar getMenu() {
+		return menu;
+	}
+
 	public ChoiceColorVue(){
 		Container content = this.getContentPane();
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		
-		menu = new Menu();
+		menu = new Menu(this);
 		this.setJMenuBar(menu);
 		
-		panelHaut = new PanelHaut();
+		panelHaut = new PanelHaut(this);
 		content.add(panelHaut);
 		
-		panelBas = new PanelBas();
+		panelBas = new PanelBas(this);
 		content.add(panelBas);
 		
 		this.setSize(new Dimension(800, 600));
@@ -34,4 +46,6 @@ public class ChoiceColorVue extends JFrame{
 		this.setVisible(true);
 		this.setResizable(false);
 	}
+
+
 }

@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 public class PanelBas extends JPanel {
 	JButton buttonAdd;
 	JButton buttonModifAuto;
+	ChoiceColorVue parent;
 	
-	public PanelBas() {
+	public PanelBas(ChoiceColorVue parent) {
+		this.parent = parent;
 		this.setPreferredSize(new Dimension(800, 200));
 		this.setMinimumSize(new Dimension(800, 200));
 		this.setMaximumSize(new Dimension(800, 200));
@@ -34,7 +36,7 @@ public class PanelBas extends JPanel {
 
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
-			// Appel de la methode addLigne() dans PanelHaut
+			parent.getPanelHaut().addLine();
 		}
 	}
 	
