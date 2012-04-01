@@ -1,12 +1,10 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -49,8 +47,7 @@ public class PanelHaut extends JPanel{
 	
 	public void supLigne(JPanel ligne){
 		this.remove(ligne);
-		this.
-		ligneColors.remove(ligne);
+		this.ligneColors.remove(ligne);
 		this.revalidate();
 		this.repaint();
 	}
