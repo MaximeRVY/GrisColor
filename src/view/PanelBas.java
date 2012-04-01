@@ -33,6 +33,14 @@ public class PanelBas extends JPanel {
 		this.add(buttonModifAuto);
 		
 	}
+	
+	public void modButtonModifAuto(boolean b){
+		buttonModifAuto.setEnabled(b);
+	}
+	
+	public void modButtonAdd(boolean b){
+		buttonAdd.setEnabled(b);
+	}
 
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
