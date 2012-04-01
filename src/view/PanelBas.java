@@ -37,6 +37,8 @@ public class PanelBas extends JPanel {
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
 			parent.getPanelHaut().addLine();
+			parent.getPanelHaut().validate();
+			parent.getPanelHaut().repaint();
 		}
 	}
 	
