@@ -24,9 +24,9 @@ public void coucou(){
 		compteur = 0;
 		ligneColors = new ArrayList<JPanel>();
 		
-		this.setPreferredSize(new Dimension(800,400));
-		this.setMinimumSize(new Dimension(800,400));
-		this.setMaximumSize(new Dimension(800,400));
+		this.setPreferredSize(new Dimension(800,500));
+		this.setMinimumSize(new Dimension(800,500));
+		this.setMaximumSize(new Dimension(800,500));
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
