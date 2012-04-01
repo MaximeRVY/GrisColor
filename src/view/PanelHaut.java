@@ -36,7 +36,8 @@ public class PanelHaut extends JPanel{
 			LignePanel panel = new LignePanel();
 			this.add(panel);
 			this.add(Box.createRigidArea(new Dimension(0,10)));
-			this.ligneColors.add(panel);
+			this.ligneColors.add(panel); 
+			this.revalidate();
 			compteur ++;
 			if(compteur >= 2){
 				// rendre le bouton modifAuto de panel bas enable
