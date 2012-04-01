@@ -1,21 +1,19 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JColorChooser;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PanelHaut extends JPanel{
 	private int compteur;
-	private List<LignePanel> ligneColors;
+	private ArrayList<LignePanel> ligneColors;
 	private ChoiceColorVue parent;
-	
-public void coucou(){
-		
-	}
 	
 	public PanelHaut(ChoiceColorVue parent){
 		this.parent = parent;
@@ -32,16 +30,18 @@ public void coucou(){
 	}
 
 	public void addLine() {
-		LignePanel panel = new LignePanel(parent);
-		
-		this.add(panel);
-		this.ligneColors.add(panel); 
-		this.revalidate();
-		compteur ++;
-		if(compteur == 2){
-			parent.getPanelBas().modButtonModifAuto(true);
-		}else if(compteur == 10){
-			parent.getPanelBas().modButtonAdd(false);
+		Color color = JColorChooser.showDialog(new JFrame(), "Dialog Title", null);
+		if(color != null){
+			LignePanel panel = new LignePanel(parent, color);
+			this.add(panel);
+			this.ligneColors.add(panel); 
+			this.revalidate();
+			compteur ++;
+			if(compteur == 2){
+				parent.getPanelBas().modButtonModifAuto(true);
+			}else if(compteur == 10){
+				parent.getPanelBas().modButtonAdd(false);
+			}
 		}
 	}
 	
@@ -58,7 +58,7 @@ public void coucou(){
 		}
 	}
 	
-	public List<LignePanel> getLines(){
+	public ArrayList<LignePanel> getLines(){
 		return ligneColors;
 	}
 }

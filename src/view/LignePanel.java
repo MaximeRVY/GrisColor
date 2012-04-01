@@ -18,16 +18,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class LignePanel extends JPanel{
-	JTextField textField;
-	JPanel labelColor;
-	JPanel labelGris;
-	JPanel labelColorMod;
-	JPanel labelGrisMod;
-	JButton moins;
-	ChoiceColorVue parent;
-	JPanel ligne;
+	private JTextField textField;
+	public JPanel labelColor;
+	public JPanel labelGris;
+	public JPanel labelColorMod;
+	public JPanel labelGrisMod;
+	private JButton moins;
+	private ChoiceColorVue parent;
+	private JPanel ligne;
 	
-	public LignePanel(ChoiceColorVue parent) {
+	public LignePanel(ChoiceColorVue parent, Color color) {
 		this.parent = parent;
 		
 		moins = new JButton("-");
@@ -61,8 +61,9 @@ public class LignePanel extends JPanel{
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
-		modColor();
 		labelColor.addMouseListener(new ColorListener());
+		
+		addColor(color);
 		
 		this.add(Box.createRigidArea(new Dimension(20,0)));
 		this.add(moins);
@@ -88,13 +89,22 @@ public class LignePanel extends JPanel{
 		}
 	}
 	
+	public void addColor(Color color){
+			labelColor.setBackground(color);
+			int niveaugris = getGris();
+			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
+			System.out.println(niveaugris);
+	}
+	
+	public int getGris(){
+		Color color = labelColor.getBackground();
+		return (int) (0.3 * color.getRed() + 0.59*color.getGreen() + 0.11*color.getBlue());
+	}
+	
 	public void modColor(){
 		Color color = JColorChooser.showDialog(new JFrame(), "Dialog Title", labelColor.getBackground());
-		if(color != null){
-			labelColor.setBackground(color);
-			int niveaugris = (int) (0.3 * color.getRed() + 0.59*color.getGreen() + 0.11*color.getBlue());
-			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
-		}
+		if(color !=null)
+			addColor(color);
 	}
 	
 	public void insertColorMod(Color cc, Color cg){

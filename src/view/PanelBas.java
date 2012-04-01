@@ -2,7 +2,9 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -12,9 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelBas extends JPanel {
-	JButton buttonAdd;
-	JButton buttonModifAuto;
-	ChoiceColorVue parent;
+	private JButton buttonAdd;
+	private JButton buttonModifAuto;
+	private ChoiceColorVue parent;
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
@@ -51,10 +53,18 @@ public class PanelBas extends JPanel {
 	
 	class ModifAuto extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
-			List<LignePanel> lines = parent.getPanelHaut().getLines();
+			ArrayList<LignePanel> lines = parent.getPanelHaut().getLines();
 			LignePanel line;
+			// Tri des lignes par niveau de gris
+			Collections.sort(lines, new Comparator<LignePanel>(){
+			    public int compare(LignePanel l1, LignePanel l2){
+			         return new Integer(l1.getGris()).compareTo(l2.getGris());
+			    }
+			});
 			for(int i=0 ; i < lines.size() ; i++){
+				int ecartMin = (int) ((255/lines.size()) * 0.8);
 				line = lines.get(i);
+				System.out.println(line.getGris());
 				line.insertColorMod(line.labelColor.getBackground(), line.labelGris.getBackground());
 			}
 		}
