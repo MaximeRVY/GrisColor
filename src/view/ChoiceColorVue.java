@@ -10,14 +10,14 @@ import javax.swing.JPanel;
 
 public class ChoiceColorVue extends JFrame{
 	PanelHaut panelHaut;
-	JPanel panelBas;
+	PanelBas panelBas;
 	JMenuBar menu;
 	
 	public PanelHaut getPanelHaut() {
 		return panelHaut;
 	}
 
-	public JPanel getPanelBas() {
+	public PanelBas getPanelBas() {
 		return panelBas;
 	}
 
