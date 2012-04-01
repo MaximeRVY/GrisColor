@@ -17,9 +17,9 @@ public class PanelBas extends JPanel {
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
-		this.setPreferredSize(new Dimension(800, 200));
-		this.setMinimumSize(new Dimension(800, 200));
-		this.setMaximumSize(new Dimension(800, 200));
+		this.setPreferredSize(new Dimension(800, 150));
+		this.setMinimumSize(new Dimension(800, 150));
+		this.setMaximumSize(new Dimension(800, 150));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Modification"),BorderFactory.createEmptyBorder(10,20,10,10)));
 

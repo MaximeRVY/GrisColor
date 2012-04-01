@@ -17,7 +17,7 @@ public class ChoiceColorVue extends JFrame{
 		return panelHaut;
 	}
 
-	public JPanel getPanelBas() {
+	public PanelBas getPanelBas() {
 		return panelBas;
 	}
 
