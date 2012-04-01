@@ -40,17 +40,16 @@ public class LignePanel extends JPanel{
 		labelColor.setPreferredSize(new Dimension(35, 35));
 		labelColor.setMinimumSize(new Dimension(35,35));
 		labelColor.setMaximumSize(new Dimension(35,35));
-		labelColor.setBackground(Color.white);
 		
 		labelGris = new JPanel();
 		labelGris.setPreferredSize(new Dimension(35, 35));
 		labelGris.setMinimumSize(new Dimension(35,35));
 		labelGris.setMaximumSize(new Dimension(35,35));
-		labelGris.setBackground(Color.black);
 		
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
+		modColor();
 		labelColor.addMouseListener(new ColorListener());
 		
 		this.add(Box.createRigidArea(new Dimension(20,0)));
@@ -73,13 +72,20 @@ public class LignePanel extends JPanel{
 		}
 	}
 	
+	public void modColor(){
+		Color color = JColorChooser.showDialog(new JFrame(), "Dialog Title", labelColor.getBackground());
+		if(color != null){
+			labelColor.setBackground(color);
+			int niveaugris = (int) (0.3 * color.getRed() + 0.59*color.getGreen() + 0.11*color.getBlue());
+			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
+		}
+	}
+	
 	class ColorListener implements MouseListener{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			//new ColorChooser(labelColor);
-			labelColor.setBackground(JColorChooser.showDialog(new JFrame(), "Dialog Title", Color.white));
-			
+			modColor();
 		}
 
 		@Override
