@@ -77,7 +77,8 @@ public class PanelBas extends JPanel {
 				int r = newC.getRed();
 				int realLimInf = Math.max(limInf, precedentGris + ecartMin);
 				int cpt=0;
-				// Si le niveau de gris est inferieur à la limite optimale
+				// Si le niveau de gris est inferieur a la limite optimale
+
 				while(valGris <= realLimInf){
 					switch (cpt % 3){
 					case 0 : if(r<255)r++;break;
@@ -88,7 +89,7 @@ public class PanelBas extends JPanel {
 					newC = new Color(r,g,b);
 					valGris = line.getGris(newC);
 				}
-				// Si le niveau de gris est superieur à la limite optimale
+				// Si le niveau de gris est superieur a la limite optimale
 				while(valGris >= limSup){
 					switch (cpt % 3){
 					case 0 : if(r>0)r--;break;
@@ -104,7 +105,7 @@ public class PanelBas extends JPanel {
 				line.codeRGB.setText(rgb);
 				line.codeRGB.setVisible(true);
 				line.revalidate();
-				// On met à jour les infos pour la ligne suivante
+				// On met a jour les infos pour la ligne suivante
 				limInf += ecartMin;
 				limSup += ecartMin;
 				precedentGris= valGris;
