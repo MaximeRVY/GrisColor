@@ -62,7 +62,7 @@ public class PanelBas extends JPanel {
 			    }
 			});
 			// Initialisation des valeurs pour une modification automatique et optimale
-			int ecartMin = (int) ((255/lines.size()) * 0.8);
+			int ecartMin = (int) ((255/lines.size()) * 0.7);
 			int limInf = 0;
 			int limSup = 255 - ecartMin * (lines.size()-1);
 			int precedentGris = -ecartMin;
@@ -110,6 +110,9 @@ public class PanelBas extends JPanel {
 				// On ajoute les couleurs modifiees
 				line.insertColorMod(newC, new Color(valGris,valGris,valGris));
 			}
+			parent.getPanelHaut().newColor.setVisible(true);
+			parent.getPanelHaut().newGris.setVisible(true);
+			parent.getPanelHaut().revalidate();
 		}
 	}
 }

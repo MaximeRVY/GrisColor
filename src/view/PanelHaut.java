@@ -19,6 +19,8 @@ public class PanelHaut extends JPanel{
 	private ArrayList<LignePanel> ligneColors;
 	private ChoiceColorVue parent;
 	private JPanel lineTitle;
+	public JLabel newColor;
+	public JLabel newGris;
 	
 	public PanelHaut(ChoiceColorVue parent){
 		this.parent = parent;
@@ -47,9 +49,21 @@ public class PanelHaut extends JPanel{
 		color.setMaximumSize(new Dimension(60,10));
 		
 		JLabel gris = new JLabel("Grayscale");
-		gris.setPreferredSize(new Dimension(150, 15));
-		gris.setMinimumSize(new Dimension(150,15));
-		gris.setMaximumSize(new Dimension(150,15));
+		gris.setPreferredSize(new Dimension(60, 15));
+		gris.setMinimumSize(new Dimension(60,15));
+		gris.setMaximumSize(new Dimension(60,15));
+		
+		newColor = new JLabel("New color");
+		newColor.setPreferredSize(new Dimension(60, 10));
+		newColor.setMinimumSize(new Dimension(60,10));
+		newColor.setMaximumSize(new Dimension(60,10));
+		newColor.setVisible(false);
+		
+		newGris = new JLabel("Grayscale");
+		newGris.setPreferredSize(new Dimension(60, 15));
+		newGris.setMinimumSize(new Dimension(60,15));
+		newGris.setMaximumSize(new Dimension(60,15));
+		newGris.setVisible(false);
 		
 		lineTitle = new JPanel();
 		lineTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -62,6 +76,10 @@ public class PanelHaut extends JPanel{
 		lineTitle.add(color);
 		lineTitle.add(Box.createRigidArea(new Dimension(3,0)));
 		lineTitle.add(gris);
+		lineTitle.add(Box.createRigidArea(new Dimension(35,0)));
+		lineTitle.add(newColor);
+		lineTitle.add(Box.createRigidArea(new Dimension(15,0)));
+		lineTitle.add(newGris);
 		
 		lineTitle.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 		this.add(lineTitle);
