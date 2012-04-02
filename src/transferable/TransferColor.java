@@ -15,22 +15,10 @@ public class TransferColor extends TransferHandler {
 
 	protected Transferable createTransferable(JComponent c) {
 		Color color = ((JPanel) c).getBackground();
-		int blue = color.getBlue();
-		int red = color.getRed();
-		int green = color.getGreen();
-		
-		return new StringSelection("#"+Integer.toHexString(red)+Integer.toHexString(green)+Integer.toHexString(blue));
+		String rgb = Integer.toHexString(color.getRGB());
+		rgb = rgb.substring(2, rgb.length());
+		return new StringSelection("#"+rgb);
 	}
-
-	/*protected void exportDone(JComponent source, Transferable data, int action) {
-		if (action == MOVE) {
-			if (source.getClass().getName().contains("JLabel")) {fffefffffeff
-				((JLabel) source).setText("");
-			} else {
-				((JFormattedTextField) source).setText("");
-			}
-		}
-	}*/
 
 	public boolean canImport(TransferHandler.TransferSupport support) {
 		return false;
