@@ -76,6 +76,7 @@ public class LignePanel extends JPanel {
 		codeRGB.setMinimumSize(new Dimension(50,20));
 		codeRGB.setMinimumSize(new Dimension(50,20));
 		codeRGB.setMaximumSize(new Dimension(50,20));
+		codeRGB.setEditable(false);
 		codeRGB.setVisible(false);
 		
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -12,14 +13,19 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class PanelBas extends JPanel {
 	public JButton buttonAdd;
 	public JButton buttonModifAuto;
 	private ChoiceColorVue parent;
 	public JSlider slider;
+	private JTextField sliderVal;
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
@@ -33,26 +39,54 @@ public class PanelBas extends JPanel {
 		buttonAdd.addActionListener(new AddLignePanel());
 		this.add(buttonAdd);
 		this.add(Box.createRigidArea(new Dimension(0,10)));
+		
+		JPanel ligneModif = new JPanel();
+		ligneModif.setLayout(new BoxLayout(ligneModif, BoxLayout.X_AXIS));
+		ligneModif.setAlignmentX(Component.LEFT_ALIGNMENT);
+		
 		buttonModifAuto = new JButton("Automatic modification");
 		buttonModifAuto.setEnabled(false);
 		buttonModifAuto.addActionListener(new ModifAuto());
-		this.add(buttonModifAuto);
+		ligneModif.add(buttonModifAuto);
+		
+		ligneModif.add(Box.createRigidArea(new Dimension(30, 0)));
+		
+		JLabel text = new JLabel("Difference's grayscale (in percentage) :");
+		ligneModif.add(text);
+		
+		ligneModif.add(Box.createRigidArea(new Dimension(15, 0)));
+		
 		slider = new JSlider(0, 100, 70);
-		this.add(slider);
-	}
-	
-	public void modButtonModifAuto(boolean b){
-		buttonModifAuto.setEnabled(b);
-	}
-	
-	public void modButtonAdd(boolean b){
-		buttonAdd.setEnabled(b);
+		slider.setPreferredSize(new Dimension(200, 30));
+		slider.setMinimumSize(new Dimension(200, 30));
+		slider.setMaximumSize(new Dimension(200, 30));
+		slider.addChangeListener(new sliderChangerListener());
+		slider.setEnabled(false);
+		ligneModif.add(slider);
+		
+		ligneModif.add(Box.createRigidArea(new Dimension(20, 0)));
+		
+		sliderVal = new JTextField("70");
+		sliderVal.setMinimumSize(new Dimension(30, 20));
+		sliderVal.setMinimumSize(new Dimension(30, 20));
+		sliderVal.setMaximumSize(new Dimension(30, 20));
+		sliderVal.setEditable(false);
+		ligneModif.add(sliderVal);
+		
+		this.add(ligneModif);
 	}
 
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
 			parent.getPanelHaut().addLine();
 		}
+	}
+	
+	class sliderChangerListener implements ChangeListener {
+		public void stateChanged(ChangeEvent e) {
+			sliderVal.setText(String.valueOf(slider.getValue()));
+		}
+
 	}
 	
 	class ModifAuto extends AbstractAction{	
@@ -66,7 +100,7 @@ public class PanelBas extends JPanel {
 			    }
 			});
 			// Initialisation des valeurs pour une modification automatique et optimale
-			int ecartMin = (int) ((255/lines.size()) * 0.7);
+			int ecartMin = (int) ((255/lines.size()) * (new Float(sliderVal.getText()) / 100));
 			int limInf = 0;
 			int limSup = 255 - ecartMin * (lines.size()-1);
 			int precedentGris = -ecartMin;
