@@ -101,6 +101,9 @@ public class PanelBas extends JPanel {
 				}
 				String rgb = Integer.toHexString(newC.getRGB());
 				rgb = rgb.substring(2, rgb.length());
+				line.codeRGB.setText(rgb);
+				line.codeRGB.setVisible(true);
+				line.revalidate();
 				// On met à jour les infos pour la ligne suivante
 				limInf += ecartMin;
 				limSup += ecartMin;

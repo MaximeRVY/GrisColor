@@ -23,6 +23,7 @@ public class LignePanel extends JPanel{
 	public JPanel labelGris;
 	public JPanel labelColorMod;
 	public JPanel labelGrisMod;
+	public JTextField codeRGB;
 	private JButton moins;
 	private ChoiceColorVue parent;
 	private JPanel ligne;
@@ -58,6 +59,12 @@ public class LignePanel extends JPanel{
 		labelGrisMod.setMinimumSize(new Dimension(35,35));
 		labelGrisMod.setMaximumSize(new Dimension(35,35));
 		
+		codeRGB = new JTextField();
+		codeRGB.setMinimumSize(new Dimension(50,20));
+		codeRGB.setMinimumSize(new Dimension(50,20));
+		codeRGB.setMaximumSize(new Dimension(50,20));
+		codeRGB.setVisible(false);
+		
 		this.setAlignmentX(Component.LEFT_ALIGNMENT);
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
@@ -77,6 +84,8 @@ public class LignePanel extends JPanel{
 		this.add(labelColorMod);
 		this.add(Box.createRigidArea(new Dimension(40,0)));
 		this.add(labelGrisMod);
+		this.add(Box.createRigidArea(new Dimension(40,0)));
+		this.add(codeRGB);
 		
 		this.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 		
