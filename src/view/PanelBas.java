@@ -20,13 +20,29 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * Classe qui gere le bas de la frame
+ * @author Maxime Raverdy et Damien Level
+ *
+ */
 public class PanelBas extends JPanel {
+	/**
+	 * buttonAdd : le bouton qui permet l'ajout d'une ligne
+	 * buttonModifAuto : le bouton qui permet la modification automatique des couleurs
+	 * parent : la frame parent, retoune la frame principale
+	 * slider : le slider qui permet la modification de la valeur de l'ecart
+	 * sliderVal : la valeur du slider
+	 */
 	public JButton buttonAdd;
 	public JButton buttonModifAuto;
 	private ChoiceColorVue parent;
 	public JSlider slider;
 	private JTextField sliderVal;
 	
+	/**
+	 * Construit la haut de la frame, appelle les differentes fonctions 
+	 * @param parent la frame parent 
+	 */
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
 		this.setPreferredSize(new Dimension(800, 150));
@@ -76,12 +92,19 @@ public class PanelBas extends JPanel {
 		this.add(ligneModif);
 	}
 
+	/**
+	 * Action relative au bouton buttonAdd
+	 */
 	class AddLignePanel extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
 			parent.getPanelHaut().addLine();
 		}
 	}
 	
+	/**
+	 * Action relative au changement de la valeur du slide
+	 *
+	 */
 	class sliderChangerListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			sliderVal.setText(String.valueOf(slider.getValue()));
@@ -90,6 +113,9 @@ public class PanelBas extends JPanel {
 
 	}
 	
+	/**
+	 * Action relative au bouton buttonModifAuto
+	 */
 	class ModifAuto extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
 			ArrayList<LignePanel> lines = parent.getPanelHaut().getLines();

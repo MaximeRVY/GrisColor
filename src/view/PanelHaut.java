@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**
- * Classe qui gère le haut de la frame
+ * Classe qui gere le haut de la frame
  * @author Maxime Raverdy et Damien Level
  *
  */
@@ -34,7 +34,7 @@ public class PanelHaut extends JPanel{
 	
 	
 	/**
-	 * Construit la haut de la frame, appelle les différentes fonctions 
+	 * Construit la haut de la frame, appelle les differentes fonctions 
 	 * @param parent la frame parent 
 	 */
 	public PanelHaut(ChoiceColorVue parent){
@@ -53,7 +53,7 @@ public class PanelHaut extends JPanel{
 	}
 	
 	/**
-	 * Ajoute la ligne de titre pour les différents panel
+	 * Ajoute la ligne de titre pour les differents panel
 	 */
 	private void AddTitleLine(){
 		JLabel name = new JLabel("Name");

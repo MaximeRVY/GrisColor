@@ -22,7 +22,7 @@ import javax.swing.TransferHandler;
 import transferable.ImportColor;
 import transferable.TransferColor;
 /**
- * Classe qui gère les différentes ligne de couleur
+ * Classe qui gere les differentes ligne de couleur
  * @author Maxime Raverdy et Damien Level
  *
  */
@@ -38,7 +38,7 @@ public class LignePanel extends JPanel {
 	private JPanel ligne;
 	
 	/**
-	 * Classe qui instancie une ligne panel
+	 * Constructeur qui instancie une ligne panel
 	 * @param parent
 	 * @param color
 	 */
@@ -117,23 +117,38 @@ public class LignePanel extends JPanel {
 		this.ligne = this;
 	}
 
+	/**
+	 * Action relative au bouton "-" qui supprime la ligne
+	 */
 	class SupLignePanel extends AbstractAction {
 		public void actionPerformed(ActionEvent arg0) {
 			parent.getPanelHaut().supLigne(ligne);
 		}
 	}
 	
+	/**
+	 * Methode qui permet l'ajout de la couleur "color" dans "labelColor" et de son niveau de gris dans "labelGris"
+	 * @param color
+	 */
 	public void addColor(Color color){
 			labelColor.setBackground(color);
 			int niveaugris = getGris(labelColor.getBackground());
 			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
 	}
 
+	/**
+	 * Methode qui retourne la valeur du niveau de gris d'une couleur
+	 * @param c
+	 * @return
+	 */
 	public int getGris(Color c) {
 		return (int) (0.3 * c.getRed() + 0.59 * c.getGreen() + 0.11 * c
 				.getBlue());
 	}
 
+	/**
+	 * Methode qui permet la modification d'une couleur
+	 */
 	public void modColor() {
 		Color color = JColorChooser.showDialog(new JFrame(),
 				"Choose your color", labelColor.getBackground());
@@ -141,6 +156,11 @@ public class LignePanel extends JPanel {
 			addColor(color);
 	}
 
+	/**
+	 * Methode qui permet d'inserer les couleurs modifiees proposees par l'algo
+	 * @param cc
+	 * @param cg
+	 */
 	public void insertColorMod(Color cc, Color cg) {
 		labelColorMod.setBackground(cc);
 		labelGrisMod.setBackground(cg);
@@ -163,6 +183,9 @@ public class LignePanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Classe qui implements le listenet lors d'un clic sur la couleur ajoutee par l'utilisateur
+	 */
 	class ColorListener implements MouseListener {
 
 		@Override

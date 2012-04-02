@@ -8,7 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 /**
- * Classe qui crée le menu de la frame principale
+ * Classe qui cree le menu de la frame principale
  * @author Maxime Raverdy et Damien Level
  *
  */

@@ -48,7 +48,7 @@ public class ChoiceColorVue extends JFrame{
 	}
 
 	/**
-	 * Construit les différentes vue dans la frame principal
+	 * Construit les differentes vue dans la frame principal
 	 */
 	public ChoiceColorVue(){
 		Container content = this.getContentPane();
