@@ -76,30 +76,30 @@ public class PanelBas extends JPanel {
 				int g = newC.getGreen();
 				int r = newC.getRed();
 				int realLimInf = Math.max(limInf, precedentGris + ecartMin);
+				int cpt=0;
 				// Si le niveau de gris est inferieur à la limite optimale
 				while(valGris <= realLimInf){
-					if(Math.min(b, Math.min(g, r)) == g){
-						g++;
-					}else if (Math.min(b, Math.min(g, r)) == b){
-						b++;
-					}else{
-						r++;
+					switch (cpt % 3){
+					case 0 : if(r<255)r++;break;
+					case 1 : if(g<255)g++;break;
+					case 2 : if(b<255)b++;break;
 					}
+					cpt++;
 					newC = new Color(r,g,b);
 					valGris = line.getGris(newC);
 				}
 				// Si le niveau de gris est superieur à la limite optimale
 				while(valGris >= limSup){
-					if(Math.max(b, Math.max(g, r)) == g){
-						g--;
-					}else if (Math.max(b, Math.max(g, r)) == b){
-						b--;
-					}else{
-						r--;
+					switch (cpt % 3){
+					case 0 : if(r>0)r--;break;
+					case 1 : if(g>0)g--;break;
+					case 2 : if(b>0)b--;break;
 					}
+					cpt++;
 					newC = new Color(r,g,b);
 					valGris = line.getGris(newC);
 				}
+				System.out.println(Integer.toHexString(newC.getRGB()));
 				// On met à jour les infos pour la ligne suivante
 				limInf += ecartMin;
 				limSup += ecartMin;
