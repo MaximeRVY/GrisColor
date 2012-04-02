@@ -93,7 +93,6 @@ public class LignePanel extends JPanel{
 			labelColor.setBackground(color);
 			int niveaugris = getGris(labelColor.getBackground());
 			labelGris.setBackground(new Color(niveaugris,niveaugris,niveaugris));
-			System.out.println(niveaugris);
 	}
 	
 	public int getGris(Color c){

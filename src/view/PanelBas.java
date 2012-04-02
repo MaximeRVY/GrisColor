@@ -99,7 +99,8 @@ public class PanelBas extends JPanel {
 					newC = new Color(r,g,b);
 					valGris = line.getGris(newC);
 				}
-				System.out.println(Integer.toHexString(newC.getRGB()));
+				String rgb = Integer.toHexString(newC.getRGB());
+				rgb = rgb.substring(2, rgb.length());
 				// On met à jour les infos pour la ligne suivante
 				limInf += ecartMin;
 				limSup += ecartMin;
