@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.TransferHandler;
+import javax.swing.border.Border;
 
 import transferable.TransferColor;
 
@@ -49,21 +52,25 @@ public class LignePanel extends JPanel {
 		labelColor.setPreferredSize(new Dimension(35, 35));
 		labelColor.setMinimumSize(new Dimension(35, 35));
 		labelColor.setMaximumSize(new Dimension(35, 35));
+		labelColor.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 		labelGris = new JPanel();
 		labelGris.setPreferredSize(new Dimension(35, 35));
 		labelGris.setMinimumSize(new Dimension(35, 35));
 		labelGris.setMaximumSize(new Dimension(35, 35));
+		labelGris.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 		labelColorMod = new JPanel();
 		labelColorMod.setPreferredSize(new Dimension(35, 35));
 		labelColorMod.setMinimumSize(new Dimension(35, 35));
 		labelColorMod.setMaximumSize(new Dimension(35, 35));
-
+		labelColorMod.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		labelGrisMod = new JPanel();
 		labelGrisMod.setPreferredSize(new Dimension(35, 35));
 		labelGrisMod.setMinimumSize(new Dimension(35,35));
 		labelGrisMod.setMaximumSize(new Dimension(35,35));
+		labelGris..setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		codeRGB = new JTextField();
 		codeRGB.setMinimumSize(new Dimension(50,20));
