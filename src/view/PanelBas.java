@@ -78,7 +78,6 @@ public class PanelBas extends JPanel {
 				int realLimInf = Math.max(limInf, precedentGris + ecartMin);
 				int cpt=0;
 				// Si le niveau de gris est inferieur a la limite optimale
-
 				while(valGris <= realLimInf){
 					switch (cpt % 3){
 					case 0 : if(r<255)r++;break;
