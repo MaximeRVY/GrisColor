@@ -7,7 +7,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-
+/**
+ * Classe qui crée le menu de la frame principale
+ * @author Maxime Raverdy et Damien Level
+ *
+ */
 public class Menu extends JMenuBar{
 	private ChoiceColorVue parent;
 	public JMenuItem menuItemAdd;

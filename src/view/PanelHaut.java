@@ -13,8 +13,18 @@ import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * Classe qui gère le haut de la frame
+ * @author Maxime Raverdy et Damien Level
+ *
+ */
 public class PanelHaut extends JPanel{
+	/**
+	 * compteur : Compte le nombre de couleur affiché
+	 * ligneColors: Enregistre toutes les lignes affichées
+	 * parent : la frame parent, retourne la frame principal
+	 * lineTitle : retourne le ligne titre
+	 */
 	private int compteur;
 	private ArrayList<LignePanel> ligneColors;
 	private ChoiceColorVue parent;
@@ -22,6 +32,11 @@ public class PanelHaut extends JPanel{
 	public JLabel newColor;
 	public JLabel newGris;
 	
+	
+	/**
+	 * Construit la haut de la frame, appelle les différentes fonctions 
+	 * @param parent la frame parent 
+	 */
 	public PanelHaut(ChoiceColorVue parent){
 		this.parent = parent;
 		compteur = 0;
@@ -37,6 +52,9 @@ public class PanelHaut extends JPanel{
 		this.setBorder(BorderFactory.createTitledBorder("Choose Color"));
 	}
 	
+	/**
+	 * Ajoute la ligne de titre pour les différents panel
+	 */
 	private void AddTitleLine(){
 		JLabel name = new JLabel("Name");
 		name.setPreferredSize(new Dimension(60, 10));
@@ -86,6 +104,9 @@ public class PanelHaut extends JPanel{
 	
 	}
 
+	/**
+	 * Ajoute une ligne de couleur
+	 */
 	public void addLine() {
 		if(compteur == 0){
 			this.AddTitleLine();
@@ -109,6 +130,10 @@ public class PanelHaut extends JPanel{
 		}
 	}
 	
+	/**
+	 * Supprime une ligne de couleur
+	 * @param ligne la ligne qu'il faut supprimer
+	 */
 	public void supLigne(JPanel ligne){
 		this.remove(ligne);
 		ligneColors.remove(ligne);
@@ -127,6 +152,10 @@ public class PanelHaut extends JPanel{
 		parent.getPanelBas().slider.setEnabled(false);
 	}
 	
+	/**
+	 * Retourne toutes les lignes de couleur
+	 * @return
+	 */
 	public ArrayList<LignePanel> getLines(){
 		return ligneColors;
 	}

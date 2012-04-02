@@ -7,7 +7,11 @@ import java.awt.datatransfer.Transferable;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
-
+/**
+ * Classe pour importer un code hexadécimal vers un panel de couleur
+ * @author maxime
+ *
+ */
 public class ImportColor extends TransferHandler {
 	public int getSourceActions(JComponent c) {
 		return COPY;
@@ -16,7 +20,9 @@ public class ImportColor extends TransferHandler {
 	public boolean canImport(TransferHandler.TransferSupport support) {
 		return true;
 	}
-	
+	/**
+	 * Fonction qui traduit un code "#FFFFF" vers un couleur
+	 */
 	public boolean importData(TransferHandler.TransferSupport support) {
 		if(support.isDataFlavorSupported(DataFlavor.stringFlavor)){
 			JPanel panel = (JPanel) support.getComponent();

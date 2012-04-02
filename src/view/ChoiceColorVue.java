@@ -7,24 +7,49 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-
+/**
+ * Classe de la Frame principale
+ * @author Maxime Raverdy et Damien Level
+ * 
+ *
+ */
 public class ChoiceColorVue extends JFrame{
+	/**
+	 * panelHaut : variable pour enregistrer le haut de la frame 
+	 * panelBas : variable pour enregister le bas de la frame
+	 * menu : variable pour enregister le menu
+	 */
 	PanelHaut panelHaut;
 	PanelBas panelBas;
 	Menu menu;
 	
+	/**
+	 * 
+	 * @return le panel haut
+	 */
 	public PanelHaut getPanelHaut() {
 		return panelHaut;
 	}
 
+	/**
+	 * 
+	 * @return le panel Bas
+	 */
 	public PanelBas getPanelBas() {
 		return panelBas;
 	}
 
+	/**
+	 * 
+	 * @return retourne le menu
+	 */
 	public Menu getMenu() {
 		return menu;
 	}
 
+	/**
+	 * Construit les différentes vue dans la frame principal
+	 */
 	public ChoiceColorVue(){
 		Container content = this.getContentPane();
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));

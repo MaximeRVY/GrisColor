@@ -21,7 +21,11 @@ import javax.swing.TransferHandler;
 
 import transferable.ImportColor;
 import transferable.TransferColor;
-
+/**
+ * Classe qui gère les différentes ligne de couleur
+ * @author Maxime Raverdy et Damien Level
+ *
+ */
 public class LignePanel extends JPanel {
 	private JTextField textField;
 	public JPanel labelColor;
@@ -32,7 +36,12 @@ public class LignePanel extends JPanel {
 	private JButton moins;
 	private ChoiceColorVue parent;
 	private JPanel ligne;
-
+	
+	/**
+	 * Classe qui instancie une ligne panel
+	 * @param parent
+	 * @param color
+	 */
 	public LignePanel(ChoiceColorVue parent, Color color) {
 		this.parent = parent;
 
@@ -139,6 +148,11 @@ public class LignePanel extends JPanel {
 		labelGrisMod.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
+	/**
+	 * Classe pour appeller le drag and drop de la couleur vers un code hexa
+	 * @author Maxime Raverdy et Damien Level
+	 *
+	 */
 	class ColorMouseListener extends MouseMotionAdapter {
 		public void mouseDragged(MouseEvent e) {
 			Object o = (Object) e.getSource();
