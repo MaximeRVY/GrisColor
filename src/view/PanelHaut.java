@@ -46,21 +46,21 @@ public class PanelHaut extends JPanel{
 		color.setMinimumSize(new Dimension(60,10));
 		color.setMaximumSize(new Dimension(60,10));
 		
-		JLabel gris = new JLabel("Transform color");
-		gris.setPreferredSize(new Dimension(150, 10));
-		gris.setMinimumSize(new Dimension(150,10));
-		gris.setMaximumSize(new Dimension(150,10));
+		JLabel gris = new JLabel("Grayscale");
+		gris.setPreferredSize(new Dimension(150, 15));
+		gris.setMinimumSize(new Dimension(150,15));
+		gris.setMaximumSize(new Dimension(150,15));
 		
 		lineTitle = new JPanel();
 		lineTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
 		lineTitle.setLayout(new BoxLayout(lineTitle, BoxLayout.X_AXIS));
 		
 		
-		lineTitle.add(Box.createRigidArea(new Dimension(100,0)));
+		lineTitle.add(Box.createRigidArea(new Dimension(130,0)));
 		lineTitle.add(name);
-		lineTitle.add(Box.createRigidArea(new Dimension(80,0)));
+		lineTitle.add(Box.createRigidArea(new Dimension(50,0)));
 		lineTitle.add(color);
-		lineTitle.add(Box.createRigidArea(new Dimension(10,0)));
+		lineTitle.add(Box.createRigidArea(new Dimension(3,0)));
 		lineTitle.add(gris);
 		
 		lineTitle.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
@@ -81,8 +81,10 @@ public class PanelHaut extends JPanel{
 			compteur ++;
 			if(compteur == 2){
 				parent.getPanelBas().modButtonModifAuto(true);
+				parent.getMenu().menuItemMod.setEnabled(true);
 			}else if(compteur == 10){
 				parent.getPanelBas().modButtonAdd(false);
+				parent.getMenu().menuItemAdd.setEnabled(false);
 			}
 
 		}
@@ -96,8 +98,10 @@ public class PanelHaut extends JPanel{
 		compteur--;
 		if(compteur == 1){
 			parent.getPanelBas().modButtonModifAuto(false);
+			parent.getMenu().menuItemMod.setEnabled(false);
 		}else if(compteur == 9){
 			parent.getPanelBas().modButtonAdd(true);
+			parent.getMenu().menuItemAdd.setEnabled(true);
 		}else if (compteur == 0){
 			this.remove(lineTitle);
 		}

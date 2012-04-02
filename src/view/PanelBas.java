@@ -15,8 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelBas extends JPanel {
-	private JButton buttonAdd;
-	private JButton buttonModifAuto;
+	public JButton buttonAdd;
+	public JButton buttonModifAuto;
 	private ChoiceColorVue parent;
 	
 	public PanelBas(ChoiceColorVue parent) {
@@ -27,15 +27,14 @@ public class PanelBas extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Modification"),BorderFactory.createEmptyBorder(10,20,10,10)));
 
-		buttonAdd = new JButton("Ajouter une couleur");
+		buttonAdd = new JButton("Add a color");
 		buttonAdd.addActionListener(new AddLignePanel());
 		this.add(buttonAdd);
 		this.add(Box.createRigidArea(new Dimension(0,10)));
-		buttonModifAuto = new JButton("Modification Automatique");
+		buttonModifAuto = new JButton("Automatic modification");
 		buttonModifAuto.setEnabled(false);
 		buttonModifAuto.addActionListener(new ModifAuto());
 		this.add(buttonModifAuto);
-		
 	}
 	
 	public void modButtonModifAuto(boolean b){

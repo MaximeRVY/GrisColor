@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class ChoiceColorVue extends JFrame{
 	PanelHaut panelHaut;
 	PanelBas panelBas;
-	JMenuBar menu;
+	Menu menu;
 	
 	public PanelHaut getPanelHaut() {
 		return panelHaut;
@@ -21,7 +21,7 @@ public class ChoiceColorVue extends JFrame{
 		return panelBas;
 	}
 
-	public JMenuBar getMenu() {
+	public Menu getMenu() {
 		return menu;
 	}
 
