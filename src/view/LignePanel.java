@@ -64,13 +64,13 @@ public class LignePanel extends JPanel {
 		labelColorMod.setPreferredSize(new Dimension(35, 35));
 		labelColorMod.setMinimumSize(new Dimension(35, 35));
 		labelColorMod.setMaximumSize(new Dimension(35, 35));
-		labelColorMod.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		
 		labelGrisMod = new JPanel();
 		labelGrisMod.setPreferredSize(new Dimension(35, 35));
 		labelGrisMod.setMinimumSize(new Dimension(35,35));
 		labelGrisMod.setMaximumSize(new Dimension(35,35));
-		labelGris..setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		
 		codeRGB = new JTextField();
 		codeRGB.setMinimumSize(new Dimension(50,20));
@@ -136,6 +136,8 @@ public class LignePanel extends JPanel {
 	public void insertColorMod(Color cc, Color cg) {
 		labelColorMod.setBackground(cc);
 		labelGrisMod.setBackground(cg);
+		labelColorMod.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		labelGrisMod.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
 	class ColorMouseListener extends MouseMotionAdapter {
