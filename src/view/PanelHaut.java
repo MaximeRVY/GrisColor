@@ -72,7 +72,7 @@ public class PanelHaut extends JPanel{
 		if(compteur == 0){
 			this.AddTitleLine();
 		}
-		Color color = JColorChooser.showDialog(new JFrame(), "Dialog Title", null);
+		Color color = JColorChooser.showDialog(new JFrame(), "Choose your Colors", null);
 		if(color != null){
 			LignePanel panel = new LignePanel(parent, color);
 			this.add(panel);
