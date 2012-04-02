@@ -85,7 +85,7 @@ public class PanelBas extends JPanel {
 	class sliderChangerListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			sliderVal.setText(String.valueOf(slider.getValue()));
-			buttonModifAuto.doClick();
+			new ModifAuto().actionPerformed(null);
 		}
 
 	}
@@ -152,6 +152,7 @@ public class PanelBas extends JPanel {
 			parent.getPanelHaut().newColor.setVisible(true);
 			parent.getPanelHaut().newGris.setVisible(true);
 			parent.getPanelHaut().revalidate();
+			slider.setEnabled(true);
 		}
 	}
 }

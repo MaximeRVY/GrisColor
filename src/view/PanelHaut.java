@@ -99,12 +99,12 @@ public class PanelHaut extends JPanel{
 			compteur ++;
 			if(compteur == 2){
 				parent.getPanelBas().buttonModifAuto.setEnabled(true);
-				parent.getPanelBas().slider.setEnabled(true);
 				parent.getMenu().menuItemMod.setEnabled(true);
 			}else if(compteur == 10){
 				parent.getPanelBas().buttonAdd.setEnabled(true);
 				parent.getMenu().menuItemAdd.setEnabled(false);
 			}
+			parent.getPanelBas().slider.setEnabled(false);
 
 		}
 	}
@@ -117,7 +117,6 @@ public class PanelHaut extends JPanel{
 		compteur--;
 		if(compteur == 1){
 			parent.getPanelBas().buttonModifAuto.setEnabled(false);
-			parent.getPanelBas().slider.setEnabled(false);
 			parent.getMenu().menuItemMod.setEnabled(false);
 		}else if(compteur == 9){
 			parent.getPanelBas().buttonAdd.setEnabled(true);
@@ -125,6 +124,7 @@ public class PanelHaut extends JPanel{
 		}else if (compteur == 0){
 			this.remove(lineTitle);
 		}
+		parent.getPanelBas().slider.setEnabled(false);
 	}
 	
 	public ArrayList<LignePanel> getLines(){
