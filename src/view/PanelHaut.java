@@ -49,20 +49,20 @@ public class PanelHaut extends JPanel{
 		color.setMaximumSize(new Dimension(60,10));
 		
 		JLabel gris = new JLabel("Grayscale");
-		gris.setPreferredSize(new Dimension(60, 15));
-		gris.setMinimumSize(new Dimension(60,15));
-		gris.setMaximumSize(new Dimension(60,15));
+		gris.setPreferredSize(new Dimension(70, 15));
+		gris.setMinimumSize(new Dimension(70,15));
+		gris.setMaximumSize(new Dimension(70,15));
 		
 		newColor = new JLabel("New color");
-		newColor.setPreferredSize(new Dimension(60, 10));
-		newColor.setMinimumSize(new Dimension(60,10));
-		newColor.setMaximumSize(new Dimension(60,10));
+		newColor.setPreferredSize(new Dimension(70, 10));
+		newColor.setMinimumSize(new Dimension(70,10));
+		newColor.setMaximumSize(new Dimension(70,10));
 		newColor.setVisible(false);
 		
 		newGris = new JLabel("Grayscale");
-		newGris.setPreferredSize(new Dimension(60, 15));
-		newGris.setMinimumSize(new Dimension(60,15));
-		newGris.setMaximumSize(new Dimension(60,15));
+		newGris.setPreferredSize(new Dimension(80, 15));
+		newGris.setMinimumSize(new Dimension(80,15));
+		newGris.setMaximumSize(new Dimension(80,15));
 		newGris.setVisible(false);
 		
 		lineTitle = new JPanel();
@@ -76,9 +76,9 @@ public class PanelHaut extends JPanel{
 		lineTitle.add(color);
 		lineTitle.add(Box.createRigidArea(new Dimension(3,0)));
 		lineTitle.add(gris);
-		lineTitle.add(Box.createRigidArea(new Dimension(35,0)));
+		lineTitle.add(Box.createRigidArea(new Dimension(20,0)));
 		lineTitle.add(newColor);
-		lineTitle.add(Box.createRigidArea(new Dimension(15,0)));
+		lineTitle.add(Box.createRigidArea(new Dimension(10,0)));
 		lineTitle.add(newGris);
 		
 		lineTitle.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
