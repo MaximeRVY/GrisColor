@@ -1,7 +1,11 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -11,9 +15,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelBas extends JPanel {
-	JButton buttonAdd;
-	JButton buttonModifAuto;
-	ChoiceColorVue parent;
+	private JButton buttonAdd;
+	private JButton buttonModifAuto;
+	private ChoiceColorVue parent;
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
@@ -50,7 +54,59 @@ public class PanelBas extends JPanel {
 	
 	class ModifAuto extends AbstractAction{	
 		public void actionPerformed(ActionEvent arg0) {
-			
+			ArrayList<LignePanel> lines = parent.getPanelHaut().getLines();
+			LignePanel line;
+			// Tri des lignes par niveau de gris
+			Collections.sort(lines, new Comparator<LignePanel>(){
+			    public int compare(LignePanel l1, LignePanel l2){
+			         return new Integer(l1.getGris(l1.labelColor.getBackground())).compareTo(l2.getGris(l2.labelColor.getBackground()));
+			    }
+			});
+			// Initialisation des valeurs pour une modification automatique et optimale
+			int ecartMin = (int) ((255/lines.size()) * 0.8);
+			int limInf = 0;
+			int limSup = 255 - ecartMin * (lines.size()-1);
+			int precedentGris = -ecartMin;
+			// Parcourt des couleurs pour verifier le niveau de gris et changer la couleur si elle n'est pas optimale
+			for(int i=0 ; i < lines.size() ; i++){
+				line = lines.get(i);
+				Color newC = line.labelColor.getBackground();
+				int valGris = line.getGris(newC);
+				int b = newC.getBlue();
+				int g = newC.getGreen();
+				int r = newC.getRed();
+				int realLimInf = Math.max(limInf, precedentGris + ecartMin);
+				// Si le niveau de gris est inferieur � la limite optimale
+				while(valGris <= realLimInf){
+					if(Math.min(b, Math.min(g, r)) == g){
+						g++;
+					}else if (Math.min(b, Math.min(g, r)) == b){
+						b++;
+					}else{
+						r++;
+					}
+					newC = new Color(r,g,b);
+					valGris = line.getGris(newC);
+				}
+				// Si le niveau de gris est superieur � la limite optimale
+				while(valGris >= limSup){
+					if(Math.max(b, Math.max(g, r)) == g){
+						g--;
+					}else if (Math.max(b, Math.max(g, r)) == b){
+						b--;
+					}else{
+						r--;
+					}
+					newC = new Color(r,g,b);
+					valGris = line.getGris(newC);
+				}
+				// On met � jour les infos pour la ligne suivante
+				limInf += ecartMin;
+				limSup += ecartMin;
+				precedentGris= valGris;
+				// On ajoute les couleurs modifiees
+				line.insertColorMod(newC, new Color(valGris,valGris,valGris));
+			}
 		}
 	}
 }
