@@ -13,11 +13,13 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 
 public class PanelBas extends JPanel {
 	public JButton buttonAdd;
 	public JButton buttonModifAuto;
 	private ChoiceColorVue parent;
+	public JSlider slider;
 	
 	public PanelBas(ChoiceColorVue parent) {
 		this.parent = parent;
@@ -35,6 +37,8 @@ public class PanelBas extends JPanel {
 		buttonModifAuto.setEnabled(false);
 		buttonModifAuto.addActionListener(new ModifAuto());
 		this.add(buttonModifAuto);
+		slider = new JSlider(0, 100, 70);
+		this.add(slider);
 	}
 	
 	public void modButtonModifAuto(boolean b){
