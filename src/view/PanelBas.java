@@ -85,6 +85,7 @@ public class PanelBas extends JPanel {
 	class sliderChangerListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			sliderVal.setText(String.valueOf(slider.getValue()));
+			buttonModifAuto.doClick();
 		}
 
 	}
