@@ -3,8 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -16,14 +14,12 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.TransferHandler;
-import javax.swing.border.Border;
 
+import transferable.ImportColor;
 import transferable.TransferColor;
 
 public class LignePanel extends JPanel {
@@ -53,6 +49,8 @@ public class LignePanel extends JPanel {
 		labelColor.setMinimumSize(new Dimension(35, 35));
 		labelColor.setMaximumSize(new Dimension(35, 35));
 		labelColor.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
+		labelColor.setTransferHandler(new ImportColor());
 
 		labelGris = new JPanel();
 		labelGris.setPreferredSize(new Dimension(35, 35));
